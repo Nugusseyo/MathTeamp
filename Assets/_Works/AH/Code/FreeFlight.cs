@@ -2,7 +2,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace _Works.AH.Code
+namespace AH.Code
 {
     public class FreeFlightUI : MonoBehaviour
     {
@@ -25,6 +25,7 @@ namespace _Works.AH.Code
             _rectTransform = GetComponent<RectTransform>();
             _parentRect = _rectTransform.parent as RectTransform;
             _canvas = GetComponentInParent<Canvas>();
+            Application.runInBackground = true;
         }
 
         private void Start()
