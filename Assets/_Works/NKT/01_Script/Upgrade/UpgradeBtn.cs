@@ -13,6 +13,8 @@ namespace NKT.Upgrade
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private float colorChangeTime = 0.15f;
 
+        public Action OnUpgrade;
+
         private Button _button;
         private Image _image;
         private int _currentLevel = 0;
@@ -41,6 +43,7 @@ namespace NKT.Upgrade
                 text.text = upgradeSo.GetCost(_currentLevel).ToString() + "원";
                 Debug.Log("야르");
                 //업그레이드 했을때 바뀌는 거
+                OnUpgrade?.Invoke();
             }
             else
             {
