@@ -28,7 +28,13 @@ namespace NKT.Manager
 
         public bool CanSpendMoney(int money)
         {
-            return _money < money;
+            return _money > money;
+        }
+
+        [ContextMenu("돈 복사")]
+        public void AddLegendMoney()
+        {
+            AddMoney(10000000);
         }
     }
 }
