@@ -6,7 +6,7 @@ public class AndroidVolumeUI : MonoBehaviour
 {
     public void ShowVolumeUI()
     {
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         try
         {
             AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

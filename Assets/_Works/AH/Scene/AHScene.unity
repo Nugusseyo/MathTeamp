@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 788811485}
   - component: {fileID: 788811486}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: "\uB098\uAC00\uC9C0 \uB9C8\uC138\uC694 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788811482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1287045244}
+        m_TargetAssemblyTypeName: AH.Code.NotificationManager, Assembly-CSharp
+        m_MethodName: Hello
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &788811482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,13 +585,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788811477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2225af812444cc39b7a9e69b5fe270d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Works.AH.Code.EvasionUI
   placeholder: {fileID: 1161739029}
-  maxEvadeCount: 5
+  maxEvadeCount: 1000
   evadeDistance: 500
   evadeDuration: 0.25
   returnDuration: 0.35
@@ -596,7 +608,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788811477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7ed03976e824634a88b451d6e5dc90e, type: 3}
   m_Name: 
@@ -978,6 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1287045243}
   - component: {fileID: 1287045242}
+  - component: {fileID: 1287045244}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1012,6 +1025,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287045244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287045241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 648f9d796c837684096c6d22e72d67cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AH.Code.NotificationManager
 --- !u!1 &1331946337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1054,7 @@ GameObject:
   - component: {fileID: 1331946345}
   - component: {fileID: 1331946346}
   m_Layer: 5
-  m_Name: Button
+  m_Name: "\uC2DC\uC791 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,7 +1138,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1331946342}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1287045244}
+        m_TargetAssemblyTypeName: AH.Code.NotificationManager, Assembly-CSharp
+        m_MethodName: Hello
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1331946342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,13 +1209,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331946337}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2225af812444cc39b7a9e69b5fe270d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Works.AH.Code.EvasionUI
   placeholder: {fileID: 1843049654}
-  maxEvadeCount: 5
+  maxEvadeCount: 1000
   evadeDistance: 500
   evadeDuration: 0.25
   returnDuration: 0.35
@@ -1195,7 +1232,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331946337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7ed03976e824634a88b451d6e5dc90e, type: 3}
   m_Name: 
@@ -1223,7 +1260,7 @@ GameObject:
   - component: {fileID: 1348130066}
   - component: {fileID: 1348130067}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: "\uC124\uC815 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1308,6 +1345,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1287045244}
+        m_TargetAssemblyTypeName: AH.Code.NotificationManager, Assembly-CSharp
+        m_MethodName: Hello
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1287045242}
         m_TargetAssemblyTypeName: AndroidVolumeUI, Assembly-CSharp
         m_MethodName: ShowVolumeUI
@@ -1378,13 +1427,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348130058}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2225af812444cc39b7a9e69b5fe270d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Works.AH.Code.EvasionUI
   placeholder: {fileID: 473943854}
-  maxEvadeCount: 5
+  maxEvadeCount: 1000
   evadeDistance: 500
   evadeDuration: 0.25
   returnDuration: 0.35
@@ -1401,7 +1450,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348130058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7ed03976e824634a88b451d6e5dc90e, type: 3}
   m_Name: 
