@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpgradeSo
   m_EditorClassIdentifier: Assembly-CSharp::NKT.Upgrade.UpgradeSo
   baseCost: 1
-  multiplier: 1
+  multiplier: 2
