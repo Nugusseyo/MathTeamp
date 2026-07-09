@@ -1,51 +1,55 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using NKT.Manager;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace JYG._Scripts
 {
-    public class GameManager
+    [CreateAssetMenu(fileName=("new GameManager"),menuName="Managers/GameManager")]
+    public class GameManager : ManagerBase
     {
-        private PlayerInputSO _inputSO;
-        private CostManager _costManager;
+        [field: SerializeField] public PlayerInputSO PlayerInputSO { get; private set; }
+        public int MoneyIncrease { get; private set; } = 1;
+        public event Action OnClickUpgrade;
+        public UIState curUIState = UIState.CLOSE;
 
-        private Dictionary<Type, IManager> _managerDict = new Dictionary<Type, IManager>();
-
-        public GameManager(IEnumerable<IManager> managers, PlayerInputSO input)
+        private void OnEnable()
         {
-            foreach (IManager manager in managers)
+            Debug.Assert(PlayerInputSO != null, $"GameManager는 PlayerInputSO가 필수입니다.");
+
+            PlayerInputSO.OnMouseClick += HandleMouseClick;
+        }
+
+        private void OnDisable()
+        {
+            if (PlayerInputSO != null)
             {
-                manager.Init(this);
-                _managerDict.TryAdd(manager.GetType(), manager);
+                PlayerInputSO.OnMouseClick -= HandleMouseClick;
             }
-            _inputSO = input;
-            input.OnMouseClick += HandlePlayerClick;
-        }
-        
-        ~GameManager()
-        {
-            _inputSO.OnMouseClick -= HandlePlayerClick;
         }
 
-        private T GetManager<T>()
+        public void UpgradeModifier(int newValue)
         {
-            T returnManager = default(T);
-            if(_managerDict.TryGetValue(typeof(T), out IManager manager))
-                returnManager = (T)manager;
+            if(MoneyIncrease == newValue)
+                Debug.LogWarning("현재 IncreaseValue와 입력하신 NewValue의 값이 동일합니다.");
+            OnClickUpgrade?.Invoke();
+            MoneyIncrease = newValue;
+        }
 
-            if (returnManager == null)
-                returnManager = (T)_managerDict.Values.FirstOrDefault(target => target is T);
+        private void HandleMouseClick()
+        {
+            Debug.Log("Try Add Money");
+            if (curUIState != UIState.CLOSE)
+                return;
             
-            return returnManager;
+            CostManager.Instance.AddMoney(MoneyIncrease);
         }
-
-        private void HandlePlayerClick()
-        {
-            if (EventSystem.current.IsPointerOverGameObject()) return;
-            
-            _costManager.AddMoney(5);
-        }
+    }
+    
+    public enum UIState
+    {
+        OPEN,
+        CLOSE,
+        EXIT
     }
 }
