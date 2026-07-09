@@ -901,11 +901,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 10ed3a70-292f-4c91-8988-c4b4178f67f6
+  cloudProjectId: 51de1f9a-cdbb-4e58-87e1-0a4cba9e26c5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project (2)
-  organizationId: minsoung200
+  projectName: My project 2026-06-11_12-44-00
+  organizationId: nugusaeyo0110
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
