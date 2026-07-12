@@ -1,12 +1,13 @@
-using System;
 using DG.Tweening;
+using Unity.Cinemachine;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Works.AH.Code
 {
     public class RotateText : MonoBehaviour
     {
-        [SerializeField] private float duration;
+        [SerializeField, MinMaxRangeSlider(0, 10)] private Vector2 duration;
         private RectTransform _rect;
         private void Awake()
         {
@@ -15,7 +16,7 @@ namespace _Works.AH.Code
 
         private void Start()
         {
-            transform.DORotate(new Vector3(0, 0, 360), 1f, RotateMode.FastBeyond360)
+            transform.DORotate(new Vector3(0, 0, 360), Random.Range(duration.x, duration.y) , RotateMode.FastBeyond360)
                 .SetLoops(-1, LoopType.Incremental)
                 .SetEase(Ease.Linear);
         }
