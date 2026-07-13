@@ -41,7 +41,6 @@ namespace JYG._Scripts
 
         private void HandleMouseClick()
         {
-            Debug.Log("Try Add Money");
             if (curUIState != UIState.CLOSE)
                 return;
             
