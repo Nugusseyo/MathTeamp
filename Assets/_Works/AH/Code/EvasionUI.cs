@@ -1,9 +1,8 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-namespace _Works.AH.Code
+namespace AH.Code
 {
     public class EvasionUI : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     {
