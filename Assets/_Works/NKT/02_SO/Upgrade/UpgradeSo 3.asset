@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae107fe79e734601bcc47e75a1fa441d, type: 3}
   m_Name: UpgradeSo 3
   m_EditorClassIdentifier: Assembly-CSharp::NKT.Upgrade.UpgradeSo
-  baseCost: 100000000
+  baseCost: 100000000000000000
   multiplier: 5
   logScale: 100000
