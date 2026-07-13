@@ -8,11 +8,11 @@ namespace NKT.autoClick
     public class AutoClicker : MonoBehaviour
     {
         [SerializeField] private UpgradeSo upgradeSo;
-        private int _getMoney = 1;
+        private ulong _getMoney = 1;
         public float clickInterval = 2f;
         public bool isAutoClick = false;
 
-        public void MoneyIncrease(int money)
+        public void MoneyIncrease(ulong money)
         {
             _getMoney += money;
         }

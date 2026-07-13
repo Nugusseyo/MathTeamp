@@ -3,6 +3,7 @@ using System.Collections;
 using NKT.Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace NKT.Upgrade
@@ -13,7 +14,7 @@ namespace NKT.Upgrade
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private float colorChangeTime = 0.15f;
 
-        public Action OnUpgrade;
+        public UnityEvent OnUpgrade;
 
         private Button _button;
         private Image _image;
@@ -34,7 +35,7 @@ namespace NKT.Upgrade
 
         private void HandleUpgrade()
         {
-            int cost = upgradeSo.GetCost(_currentLevel);
+            ulong cost = upgradeSo.GetCost(_currentLevel);
             if (CostManager.Instance.CanSpendMoney(cost))
             {
                 CostManager.Instance.SpendMoney(cost);

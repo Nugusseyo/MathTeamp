@@ -9,7 +9,7 @@ namespace JYG._Scripts
     public class GameManager : ManagerBase
     {
         [field: SerializeField] public PlayerInputSO PlayerInputSO { get; private set; }
-        public int MoneyIncrease { get; private set; } = 1;
+        public ulong MoneyIncrease { get; private set; } = 1;
         public event Action OnClickUpgrade;
         public UIState curUIState = UIState.CLOSE;
 
@@ -17,6 +17,8 @@ namespace JYG._Scripts
         {
             Debug.Assert(PlayerInputSO != null, $"GameManager는 PlayerInputSO가 필수입니다.");
 
+            MoneyIncrease = 1;
+            curUIState = UIState.CLOSE;
             PlayerInputSO.OnMouseClick += HandleMouseClick;
         }
 
@@ -28,11 +30,12 @@ namespace JYG._Scripts
             }
         }
 
-        public void UpgradeModifier(int newValue)
+        public void UpgradeModifier(ulong newValue)
         {
             if(MoneyIncrease == newValue)
                 Debug.LogWarning("현재 IncreaseValue와 입력하신 NewValue의 값이 동일합니다.");
             OnClickUpgrade?.Invoke();
+            Debug.Log("Modifer! " + newValue);
             MoneyIncrease = newValue;
         }
 

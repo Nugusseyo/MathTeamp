@@ -13,8 +13,6 @@ namespace JYG._Scripts.UI
         [SerializeField] private float duration = 0.25f;
         [SerializeField] private Vector3 targetScale = new Vector3(1.15f, 1.15f, 1f);
         
-        // ⚠️ 월드 좌표 기준이므로 픽셀 단위 offset이 아닌, 월드 공간에서의 이동량입니다.
-        // UI 구조나 캔버스 스케일에 따라 값을 조절해 주세요 (예: 0.5f ~ 50f 등)
         [SerializeField] private Vector3 worldMoveOffset = new Vector3(30f, 0f, 0f); 
         [SerializeField] private Color highlightColor = new Color(1f, 0.9f, 0.5f);
 
@@ -22,7 +20,7 @@ namespace JYG._Scripts.UI
         private Image _buttonImage;
         
         private Vector3 _originalScale;
-        private Vector3 _originalWorldPosition; // 월드 포지션 저장용으로 변경
+        private Vector3 _originalWorldPosition;
         private Color _originalColor;
 
         private void Awake()
@@ -33,7 +31,6 @@ namespace JYG._Scripts.UI
             if (_rectTransform != null)
             {
                 _originalScale = _rectTransform.localScale;
-                // Awake 시점의 초기 월드 포지션을 기록합니다.
                 _originalWorldPosition = _rectTransform.position; 
                 Debug.Log(_originalWorldPosition);
             }
@@ -63,11 +60,11 @@ namespace JYG._Scripts.UI
         {
             if (currentState == UIState.CLOSE)
             {
-                AnimateButton(true);
+                AnimateButton(false);
             }
             else
             {
-                AnimateButton(false);
+                AnimateButton(true);
             }
         }
 
@@ -78,15 +75,12 @@ namespace JYG._Scripts.UI
 
             if (isTargetState)
             {
-                // 1. DOAnchorPos 대신 DOMove를 사용하여 월드 좌표 기준으로 이동
                 _rectTransform.DOMove(_originalWorldPosition + worldMoveOffset, duration)
                     .SetEase(Ease.OutCubic);
-
-                // 2. 크기 확대 (탄성 효과)
+                
                 _rectTransform.DOScale(targetScale, duration)
                     .SetEase(Ease.OutBack);
-
-                // 3. 색상 변경
+                
                 if (_buttonImage != null)
                 {
                     _buttonImage.DOColor(highlightColor, duration)
@@ -95,7 +89,6 @@ namespace JYG._Scripts.UI
             }
             else
             {
-                // 원래 월드 좌표로 복귀
                 _rectTransform.DOMove(_originalWorldPosition, duration * 0.8f)
                     .SetEase(Ease.OutCubic);
                     
